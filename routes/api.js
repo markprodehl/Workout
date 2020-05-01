@@ -19,8 +19,17 @@ router.post("/api/workouts", (req, res) => {
 // Respond with workout for id url parameter. This should
 // respond with the updated workout json
 router.put("/api/workouts/:id", (req, res) => {
-//  db.Workout.findByIdAndUpdate(req.params.id, {})
-
+  db.Workout.findByIdAndUpdate(req.params.id, {
+    $push: {
+      exercises: req.body
+    }
+  })
+  .then((data) => {
+    res.json(data);
+  })
+  .catch((err) => {
+    res.status(400).json(err);
+  });
 });
 
 // Respond with json for all the workouts in an array.
@@ -46,6 +55,7 @@ router.get("/api/workouts/range", (req, res) => {
         });
 });
 
+// DELETE THIS ROUTE
 // Delete workout with id matching id in the request body.
 router.delete("/api/workouts", (req, res) => {
   // CODE HERE
