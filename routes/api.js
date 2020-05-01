@@ -51,10 +51,5 @@ router.get("/api/workouts/range", (req, res) => {
         });
 });
 
-// DELETE THIS ROUTE
-// Delete workout with id matching id in the request body.
-router.delete("/api/workouts", (req, res) => {
-  // CODE HERE
-});
 
 module.exports = router;
