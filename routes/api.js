@@ -1,9 +1,5 @@
 const router = require("express").Router();
-
-// TODO: import required model/s
 const db = require("../models");
-
-// TODO: and add code to the routes so that the app functions correctly
 
 // Creates a workout using data in the request body.
 router.post("/api/workouts", (req, res) => {
